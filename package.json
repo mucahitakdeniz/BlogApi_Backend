@@ -1,8 +1,8 @@
 {
-  "title": "Stock Management API",
+  "title": "Blog Management API",
   "name": "stockapi",
   "version": "1.0.0",
-  "description": "Stock Management System",
+  "description": "Blog Management System",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -12,6 +12,7 @@
   "author": "Mucahit Akdeniz",
   "license": "ISC Licence",
   "dependencies": {
+    "crypto": "^1.0.1",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "express-async-errors": "^3.1.1",

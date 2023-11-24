@@ -19,7 +19,7 @@ app.use(express.json())
 
 
 
-
+app.use(require('./src/routes'))
 app.get("/", (req, res) => res.send("Hello World!"));
 
 //routes
