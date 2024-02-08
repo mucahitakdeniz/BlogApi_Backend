@@ -1,13 +1,19 @@
 "use strict";
 
-const { pbkdf25ync } = require("crypto"),
-  keyCode = process.env?.SECRET_KEY,
-  loopCount = 1000,
-  charCount = 32,
-  encType = "sha512";
+const crypto = require("node:crypto");
 
-module.exports = function (password) {
-  return password(password, keyCode, loopCount, charCount, encType).toString(
-    "hex"
+const keyCode = process.env.SECRET_KEY || "write_random_chars_to_here";
+const loopCount = 10_000;
+const charsCount = 32;
+const encType = "sha512";
+
+module.exports = (password) => {
+  const encode = crypto.pbkdf2Sync(
+    password,
+    keyCode,
+    loopCount,
+    charsCount,
+    encType
   );
+  return encode.toString("hex");
 };
