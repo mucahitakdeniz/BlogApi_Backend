@@ -46,13 +46,6 @@
         ],
         "summary": "List Users",
         "description": "\r  You can send query with endpoint for search[], sort[], page and limit.\r  <ul> Examples:\r   <li>URL/?<b>search[field1]=value1&search[field2]=value2</b></li>\r   <li>URL/?<b>sort[field1]=1&sort[field2]=-1</b></li>\r   <li>URL/?<b>page=2&limit=1</b></li>\r  </ul>\r  ",
-        "parameters": [
-          {
-            "name": "sort",
-            "in": "query",
-            "type": "string"
-          }
-        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -66,11 +59,6 @@
         "summary": "Create User",
         "description": "",
         "parameters": [
-          {
-            "name": "sort",
-            "in": "query",
-            "type": "string"
-          },
           {
             "name": "body",
             "in": "body",
@@ -130,11 +118,6 @@
             "in": "path",
             "required": true,
             "type": "string"
-          },
-          {
-            "name": "sort",
-            "in": "query",
-            "type": "string"
           }
         ],
         "responses": {
@@ -154,11 +137,6 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
-          },
-          {
-            "name": "sort",
-            "in": "query",
             "type": "string"
           },
           {
@@ -218,11 +196,6 @@
             "in": "path",
             "required": true,
             "type": "string"
-          },
-          {
-            "name": "sort",
-            "in": "query",
-            "type": "string"
           }
         ],
         "responses": {
@@ -245,11 +218,6 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
-          },
-          {
-            "name": "sort",
-            "in": "query",
             "type": "string"
           },
           {
@@ -305,13 +273,6 @@
         ],
         "summary": "List Blogs",
         "description": "",
-        "parameters": [
-          {
-            "name": "sort",
-            "in": "query",
-            "type": "string"
-          }
-        ],
         "responses": {
           "202": {
             "description": "Accepted"
@@ -325,11 +286,6 @@
         "summary": "Create Blog",
         "description": "",
         "parameters": [
-          {
-            "name": "sort",
-            "in": "query",
-            "type": "string"
-          },
           {
             "name": "body",
             "in": "body",
@@ -387,11 +343,6 @@
             "in": "path",
             "required": true,
             "type": "string"
-          },
-          {
-            "name": "sort",
-            "in": "query",
-            "type": "string"
           }
         ],
         "responses": {
@@ -411,11 +362,6 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
-          },
-          {
-            "name": "sort",
-            "in": "query",
             "type": "string"
           },
           {
@@ -463,11 +409,6 @@
             "in": "path",
             "required": true,
             "type": "string"
-          },
-          {
-            "name": "sort",
-            "in": "query",
-            "type": "string"
           }
         ],
         "responses": {
@@ -490,11 +431,6 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
-          },
-          {
-            "name": "sort",
-            "in": "query",
             "type": "string"
           },
           {
@@ -544,11 +480,6 @@
             "in": "path",
             "required": true,
             "type": "string"
-          },
-          {
-            "name": "sort",
-            "in": "query",
-            "type": "string"
           }
         ],
         "responses": {
@@ -571,11 +502,6 @@
             "in": "path",
             "required": true,
             "type": "string"
-          },
-          {
-            "name": "sort",
-            "in": "query",
-            "type": "string"
           }
         ],
         "responses": {
@@ -592,13 +518,6 @@
         ],
         "summary": "List Categories",
         "description": "\r  You can send query with endpoint for search[], sort[], page and limit.\r  <ul> Examples:\r   <li>URL/?<b>search[field1]=value1&search[field2]=value2</b></li>\r   <li>URL/?<b>sort[field1]=1&sort[field2]=-1</b></li>\r   <li>URL/?<b>page=2&limit=1</b></li>\r  </ul>\r  ",
-        "parameters": [
-          {
-            "name": "sort",
-            "in": "query",
-            "type": "string"
-          }
-        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -612,11 +531,6 @@
         "summary": "Create Category",
         "description": "",
         "parameters": [
-          {
-            "name": "sort",
-            "in": "query",
-            "type": "string"
-          },
           {
             "name": "body",
             "in": "body",
@@ -652,11 +566,6 @@
             "in": "path",
             "required": true,
             "type": "string"
-          },
-          {
-            "name": "sort",
-            "in": "query",
-            "type": "string"
           }
         ],
         "responses": {
@@ -676,11 +585,6 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
-          },
-          {
-            "name": "sort",
-            "in": "query",
             "type": "string"
           },
           {
@@ -716,11 +620,6 @@
             "in": "path",
             "required": true,
             "type": "string"
-          },
-          {
-            "name": "sort",
-            "in": "query",
-            "type": "string"
           }
         ],
         "responses": {
@@ -743,11 +642,6 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
-          },
-          {
-            "name": "sort",
-            "in": "query",
             "type": "string"
           },
           {
@@ -779,13 +673,6 @@
         ],
         "summary": "List Comments",
         "description": "\r  You can send query with endpoint for search[], sort[], page and limit.\r  <ul> Examples:\r   <li>URL/?<b>search[field1]=value1&search[field2]=value2</b></li>\r   <li>URL/?<b>sort[field1]=1&sort[field2]=-1</b></li>\r   <li>URL/?<b>page=2&limit=1</b></li>\r  </ul>\r  ",
-        "parameters": [
-          {
-            "name": "sort",
-            "in": "query",
-            "type": "string"
-          }
-        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -799,11 +686,6 @@
         "summary": "Create Comment",
         "description": "",
         "parameters": [
-          {
-            "name": "sort",
-            "in": "query",
-            "type": "string"
-          },
           {
             "name": "body",
             "in": "body",
@@ -849,11 +731,6 @@
             "type": "string"
           },
           {
-            "name": "sort",
-            "in": "query",
-            "type": "string"
-          },
-          {
             "name": "body",
             "in": "body",
             "required": true,
@@ -893,11 +770,6 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
-          },
-          {
-            "name": "sort",
-            "in": "query",
             "type": "string"
           },
           {
@@ -941,11 +813,6 @@
             "in": "path",
             "required": true,
             "type": "string"
-          },
-          {
-            "name": "sort",
-            "in": "query",
-            "type": "string"
           }
         ],
         "responses": {
@@ -968,11 +835,6 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
-          },
-          {
-            "name": "sort",
-            "in": "query",
             "type": "string"
           },
           {
@@ -1014,11 +876,6 @@
         "description": "",
         "parameters": [
           {
-            "name": "sort",
-            "in": "query",
-            "type": "string"
-          },
-          {
             "name": "body",
             "in": "body",
             "required": true,
@@ -1056,11 +913,6 @@
         "description": "",
         "parameters": [
           {
-            "name": "sort",
-            "in": "query",
-            "type": "string"
-          },
-          {
             "name": "authorization",
             "in": "header",
             "type": "string"
@@ -1079,11 +931,6 @@
         "summary": "Logout",
         "description": "",
         "parameters": [
-          {
-            "name": "sort",
-            "in": "query",
-            "type": "string"
-          },
           {
             "name": "authorization",
             "in": "header",
@@ -1105,11 +952,6 @@
         "summary": "A recall password is sent to the user's email which expires in two minutes",
         "description": "",
         "parameters": [
-          {
-            "name": "sort",
-            "in": "query",
-            "type": "string"
-          },
           {
             "name": "body",
             "in": "body",
@@ -1144,11 +986,6 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
-          },
-          {
-            "name": "sort",
-            "in": "query",
             "type": "string"
           },
           {
