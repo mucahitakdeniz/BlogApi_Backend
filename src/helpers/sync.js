@@ -14,43 +14,86 @@ module.exports = async function () {
     /* REMOVE DATABASE */
 
   /* User */
-  // const User = require('../models/user')
-  // await User.deleteMany() // !!! Clear collection.
-  // await User.create({
-  //     "_id": "65343222b67e9681f937f001",
-  //     "username": "admin",
-  //     "password": "aA?123456",
-  //     "email": "admin@site.com",
-  //     "first_name": "admin",
-  //     "last_name": "admin",
-  //     "is_active": true,
-  //     "is_staff": true,
-  //     "is_superadmin": true
-  // })
-  // await User.create({
-  //     "_id": "65343222b67e9681f937f002",
-  //     "username": "staff",
-  //     "password": "aA?123456",
-  //     "email": "staff@site.com",
-  //     "first_name": "staff",
-  //     "last_name": "staff",
-  //     "is_active": true,
-  //     "is_staff": true,
-  //     "is_superadmin": false
-  // })
-  // await User.create({
-  //     "_id": "65343222b67e9681f937f003",
-  //     "username": "test",
-  //     "password": "aA?123456",
-  //     "email": "test@site.com",
-  //     "first_name": "test",
-  //     "last_name": "test",
-  //     "is_active": true,
-  //     "is_staff": false,
-  //     "is_superadmin": false
-  // })
+
+  /*
+  const User = require("../models/user");
+  await User.deleteMany(); // !!! Clear collection.
+  await User.create({
+    _id: "65ba90b9b47ed0a4b115492b",
+    user_name: "admin",
+    email: "admin@site.com",
+    password: "aA?123456",
+    first_name: "admin",
+    last_name: "admin",
+    image:
+      "https://th.bing.com/th/id/OIP.Npf18M-AjkJBKfSKjvoW_gHaHa?w=201&h=201&c=7&r=0&o=5&pid=1.7",
+    bio: "I am  Admin",
+    is_active: true,
+    is_admin: true,
+  });
+  await User.create({
+    _id: "65b94604db0b79ec2b81bbe7",
+    user_name: "Test",
+    email: "test2@site.com",
+    password: "aA?123456",
+    first_name: "test1",
+    last_name: "test",
+    image: "url",
+    is_active: true,
+    is_admin: false,
+  });
+  await User.create({
+    _id: "65343222b67e9681f937f003",
+    username: "test",
+    password: "aA?123456",
+    email: "test@site.com",
+    first_name: "test",
+    last_name: "test",
+    is_active: true,
+    is_staff: false,
+    is_superadmin: false,
+  }); */
+
+  // Category;
+
+  /*
+  const Category = require("../models/blog");
+  await Category.deleteMany(); // !!! Clear collection.
+  await Category.create({
+    _id: "65baab77a9f41227c047d898",
+    name: "Magazine",
+  });
+  await Category.create({
+    _id: "65baab7ea9f41227c047d89a",
+    name: "Sport",
+  });
+  await Category.create({
+    _id: "65baab87a9f41227c047d89c",
+    name: "News",
+  });
+  await Category.create({
+    _id: "65baab9ca9f41227c047d89e",
+    name: "Travel",
+  });
+  await Category.create({ _id: "65baabb1a9f41227c047d8a0", name: "Health" });
+  await Category.create({
+    _id: "65baabbba9f41227c047d8a2",
+    name: "Technology",
+  });
+  await Category.create({
+    _id: "65bf7904556ec946363bfff8",
+    name: "Fashion",
+  });
+  await Category.create({ _id: "65bf791d556ec946363bfffa", name: "Trivia" });
+  await Category.create({
+    _id: "65bf7932556ec946363bfffc",
+    name: "Web Development",
+  });
+  await Category.create({ _id: "65bf793f556ec946363bfffe", name: "Science" }); */
 
   /* Blog */
+
+  /*
   const Blog = require("../models/blog");
   await Blog.deleteMany(); // !!! Clear collection.
   await Blog.create({
@@ -117,7 +160,7 @@ module.exports = async function () {
     image:
       "https://th.bing.com/th/id/OIP.ef_IfKEAsDlUBpLbbeFZEwHaFM?w=206&h=180&c=7&r=0&o=5&pid=1.7",
     category_id: "65baab7ea9f41227c047d89a",
-  });
+  }); */
 
   /* Finished */
   console.log("* Synchronized.");

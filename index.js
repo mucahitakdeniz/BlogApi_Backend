@@ -12,18 +12,11 @@ require("express-async-errors");
 const { dbConnection } = require("./src/configs/dbConnection");
 dbConnection();
 
-//SessionCookies
-
-const session = require("cookie-session");
-app.use(
-  session({
-    secret: process.env.SECRET_KEY || "secret_keys_for_cookies",
-  })
-);
-
+//json
 app.use(express.json());
 
-app.use(require("./src/middlewares/findSearchSortPage"));
+//CORS
+app.use(require("cors")());
 
 //Authentication
 app.use(require("./src/middlewares/authentication"));
@@ -47,4 +40,7 @@ app.use(require("./src/routes"));
 // require("./src/helpers/sync")()
 app.use(require("./src/middlewares/errorHandler"));
 
-app.listen(PORT, () => console.log("Running: http://127.0.0.1:" + PORT));
+app.listen(PORT, () =>
+  console.log("Running: http://127.0.0.1:" + PORT)
+);
+
