@@ -41,6 +41,6 @@ app.use(require("./src/routes"));
 app.use(require("./src/middlewares/errorHandler"));
 
 app.listen(PORT, () =>
-  console.log("Running: http://127.0.0.1:" + PORT)
+  console.log("It works")
 );
 
