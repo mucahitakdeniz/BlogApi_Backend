@@ -11,19 +11,15 @@ const PORT = process.env?.PORT || 8000;
 require("express-async-errors");
 
 // Connect to DB:
-const {dbConnection} =require('./src/configs/dbConnection')
-dbConnection()
+const { dbConnection } = require("./src/configs/dbConnection");
+dbConnection();
 
 //Accept JSON
-app.use(express.json())
-
-
-
-app.use(require('./src/routes'))
-app.get("/", (req, res) => res.send("Hello World!"));
+app.use(express.json());
 
 //routes
-
+app.get("/", (req, res) => res.send("Hello World!"));
+app.use(require("./src/routes"));
 //error handler
-app.use(require('./src/middlewares/errorHandler'))
-app.listen(PORT, () => console.log(`${PORT}`));
+app.use(require("./src/middlewares/errorHandler"));
+app.listen(PORT, HOST, () => console.log(`http://${HOST}:${PORT}`));
