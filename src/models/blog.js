@@ -1,6 +1,7 @@
 "use strict";
 
 const mongoose = require("mongoose");
+const Comment = require("./comment");
 /* ------------------------------------------------------- *
 {
     "title": " Title",
@@ -8,10 +9,7 @@ const mongoose = require("mongoose");
     "status": "p",
     "image": "...url...",
     "category_id": "65baabb1a9f41227c047d8a0"
-    "author": "test",
-    "likes_n": ["test","admin",....],
-    "likes": 28
-    "post_views": 45,
+    "author": "test"
 }
  ------------------------------------------------------- */
 // Blog Model:
@@ -50,7 +48,7 @@ const BlogSchema = new mongoose.Schema(
       default: function () {
         return this.likes_n.length;
       },
-      tranform: function () {
+      transform: function () {
         return this.likes_n.length;
       },
     },
@@ -66,6 +64,10 @@ const BlogSchema = new mongoose.Schema(
       transform: function () {
         return this.post_views_n.length;
       },
+    },
+    comment_count: {
+      type: Number,
+      default: 0,
     },
 
     author: {

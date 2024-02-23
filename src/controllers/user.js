@@ -43,6 +43,7 @@ module.exports = {
             }
         */
     req.body.is_admin = false;
+    req.body.is_active = true;
 
     const data = await User.create(req.body);
     if (data.user_name) {
@@ -50,9 +51,15 @@ module.exports = {
       await Token.create({ token: token, user_id: data.id });
       res.status(201).send({
         error: false,
-        data,
         body: req.body,
-        token: token,
+        token: token.token,
+        user_id: data?._id,
+        user_name: data?.user_name,
+        is_admin: data?.is_admin,
+        is_active: data?.is_active,
+        image: data?.image,
+        email: data?.email,
+
       });
     }
   },
@@ -102,7 +109,7 @@ module.exports = {
     } else {
       res.errorStatusCode = 403;
       throw new Error(
-        "You must be admin or this user account must belong to you"
+        "Uyarı ! Yalnızca admin ve hesap sahibi bu işlemi yapabilir"
       );
     }
   },

@@ -56,6 +56,7 @@ const UserSchema = new mongoose.Schema(
     image: {
       type: String,
       trim: true,
+      default:""
     },
     bio: {
       type: String,
@@ -63,7 +64,7 @@ const UserSchema = new mongoose.Schema(
     },
     is_active: {
       type: Boolean,
-      default: false,
+      default: true,
     },
     is_admin: {
       type: Boolean,
@@ -80,7 +81,7 @@ const passwordEncrypt = require("../helpers/passwordEncrypt");
 
 UserSchema.pre(["save", "updateOne"], function (next) {
   const data = this?._update || this;
-  
+
   const isEmailValidated = data.email
     ? /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(data.email)
     : true;

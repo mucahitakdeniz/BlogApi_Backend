@@ -38,9 +38,9 @@ app.use(require("./src/routes"));
 
 //Synchronization
 // require("./src/helpers/sync")()
+
 app.use(require("./src/middlewares/errorHandler"));
 
 app.listen(PORT, () =>
-  console.log("It works")
+  console.log("Running: http://127.0.0.1:" + PORT)
 );
-

@@ -29,8 +29,14 @@ module.exports = {
           if (token) {
             res.status(200).send({
               error: false,
-              message: "Login successful",
+              message: "Giriş Başarılı",
               token: token.token,
+              user_id: user._id,
+              user_name: user?.user_name,
+              email: user?.email,
+              is_admin: user.is_admin,
+              is_active: user.is_active,
+              image: user.image || null,
             });
           } else {
             const token = passwordEncrypt(user._id + new Date());
@@ -40,20 +46,26 @@ module.exports = {
             });
             res.status(200).send({
               error: false,
-              message: "Login successful",
+              message: "Giriş Başarılı",
               token: token,
+              user_id: user._id,
+              user_name: user?.user_name,
+              is_admin: user.is_admin,
+              image: user?.image || null,
+              is_active: user.is_active,
+              email: user?.email,
             });
           }
         } else {
           res.status(401).send({
             error: true,
-            message: "The password is wrong",
+            message: "Şifre yanlış",
           });
         }
       } else {
         res.status(401).send({
           error: true,
-          message: "Username is wrong",
+          message: "Yanlış kullanıcı adı",
         });
       }
     } else {
@@ -74,7 +86,7 @@ module.exports = {
     if (token && auth.split(" ")[0] == "Token") {
       await Token.deleteOne({ token: token });
     }
-    res.send({ error: false, message: "Logout ok" });
+    res.send({ error: false, message: "Çıkış başarılı" });
   },
   forgotPasswordSend: async (req, res) => {
     /*
@@ -98,13 +110,11 @@ module.exports = {
     const timeDifference = (currentDate - currentUser?.updatedAt) / 1000;
     if (timeDifference > 120) {
       res.errorStatusCode = 408;
-      throw new Error(
-        "You must enter the temporary password within 2 minutes. Get a new password"
-      );
+      throw new Error("Geçici şifreti 2dakika içinde girmelisiniz");
     }
     if (req.body.recall_password != currentUser.recall_password) {
       res.errorStatusCode = 401;
-      throw new Error("Error! You entered an incorrect code");
+      throw new Error("Uyarı! Yanlış şifre girdiniz");
     }
     const token = await Token.findOne({ user_id: currentUser._id });
     if (token) {
@@ -141,7 +151,7 @@ module.exports = {
     if (!currentUser._id) {
       res.errorStatusCode = 403;
       throw new Error(
-        `Error! An email named ${req.body.email} is not registered`
+        `Uyarı! ${req.body.email} bu isimde katıtlı bir e-mail bulunmamaktadır`
       );
     }
     const characters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -154,11 +164,12 @@ module.exports = {
       { _id: currentUser._id },
       { recall_password: recall_password }
     );
+    const updatedAt = new Date();
     sendMail(req.body.email, recall_password);
-
     res.status(200).send({
       error: false,
       id: currentUser._id,
+      creationDate: updatedAt,
     });
   },
 };

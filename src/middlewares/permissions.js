@@ -2,11 +2,16 @@
 
 module.exports = {
   isLogin: (req, res, next) => {
-    if (req.user && req.user.is_active) {
-      next();
+    if (req.user) {
+      if (req.user.is_active) {
+        next();
+      } else {
+        res.errorStatusCode = 403;
+        throw new Error("Hata! Bu hesap aktif değil");
+      }
     } else {
       res.errorStatusCode = 403;
-      throw new Error("No Permission : You must Login");
+      throw new Error("Hata! Giriş yapmadan bu işlemi yapamazsın");
     }
   },
   isAdmin: (req, res, next) => {
@@ -14,7 +19,7 @@ module.exports = {
       next();
     } else {
       res.errorStatusCode = 403;
-      throw new Error("No Permission : You must Admin");
+      throw new Error("Hata! Bu işlemi yapmak için yönetici olmalısın");
     }
-  }
+  },
 };

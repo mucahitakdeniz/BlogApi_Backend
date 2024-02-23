@@ -56,8 +56,8 @@ module.exports = async function () {
 
   // Category;
 
-  /*
-  const Category = require("../models/blog");
+  /* 
+  const Category = require("../models/category");
   await Category.deleteMany(); // !!! Clear collection.
   await Category.create({
     _id: "65baab77a9f41227c047d898",

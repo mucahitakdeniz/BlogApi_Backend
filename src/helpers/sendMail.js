@@ -29,7 +29,6 @@ module.exports = (userEmail, temporarypassword) => {
       res.errorStatusCode = 500;
       throw new Error(" Internal server error ");
     } else {
-      console.log("SUCCESS", info);
       res.status(200).json({ message: "Password reset email sent" });
     }
   });
