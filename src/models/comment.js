@@ -22,6 +22,11 @@ const CommentSchema = new mongoose.Schema(
       required: true,
       ref: "User",
     },
+    author_name: {
+      type: String,
+      required: true,
+      ref: "User",
+    },
     blog_id: {
       type: mongoose.Schema.ObjectId,
       required: true,

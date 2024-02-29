@@ -10,7 +10,16 @@ module.exports = {
            #swagger.summary = "List Comments"
           
        */
-    const data = await Comment.find();
+
+    let filter = {};
+    if (req.params.id) {
+      filter = {
+        blog_id: req.params.id,
+      };
+    }
+    const data = await Comment.find(filter).sort({
+      createdAt: -1,
+    });
     res.status(200).send({
       error: false,
       data,
@@ -26,12 +35,12 @@ module.exports = {
                 required: true,
                 schema: {
                     "content": "...comment...",
-                    "author_id": "user_id",
                     "blog_id": "blog_id",
                 }
             }
         */
     req.body.author_id = req?.user?._id;
+    req.body.author_name = req?.user?.user_name;
     const data = await Comment.create(req.body);
     if (data) {
       const updateBlog = await Blog.updateOne(
@@ -66,7 +75,7 @@ module.exports = {
     const currentComment = await Comment.findOne({
       _id: req.params.id,
     });
-    if (req.user._id == currentComment._id || req.user.is_admin) {
+    if (req.user._id.equals(currentComment.author_id) || req.user.is_admin) {
       const data = await Comment.updateOne({ _id: req.params.id }, req.body);
       res.status(202).send({
         error: false,
@@ -88,7 +97,7 @@ module.exports = {
         */
 
     const currentComment = await Comment.findOne({ _id: req.params.id });
-    if (req.user._id == currentComment._id || req.user.is_admin) {
+    if (req.user._id.equals(currentComment.author_id) || req.user.is_admin) {
       const data = await Comment.deleteOne({ _id: req.params.id });
       if (data.deletedCount >= 1) {
         await Blog.updateOne(
