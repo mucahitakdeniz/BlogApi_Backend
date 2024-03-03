@@ -148,10 +148,10 @@ module.exports = {
         */
 
     const currentUser = await User.findOne({ email: req.body.email });
-    if (!currentUser._id) {
+    if (!currentUser) {
       res.errorStatusCode = 403;
       throw new Error(
-        `Uyarı! ${req.body.email} bu isimde katıtlı bir e-mail bulunmamaktadır`
+        `Uyarı! ${req.body.email} bu isimde kayıtlı bir e-mail bulunmamaktadır`
       );
     }
     const characters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
